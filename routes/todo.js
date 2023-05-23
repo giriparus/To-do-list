@@ -44,29 +44,7 @@ router.get('/', (req, res) => {
   });
   
   
-  router.put('/:id/edit', async (req, res) => {
-    try {
-      const { title, description, completed } = req.body;
-  
-      const updatedTodo = await Todo.findByIdAndUpdate(
-        req.params.id,
-        { title, description, completed },
-        { new: true }
-      );
-  
-      if (!updatedTodo) {
-        return res.status(404).json({ message: 'TO-DO item not found' });
-      }
-      Todo.find({ user: userId })
-      .then((todos) => {
-      res.render('todos', { todos, successMessage: req.flash('successMessage') });
-      })
-     // res.status(200).json({ message: 'TO-DO item updated' });
-    } catch (error) {
-      console.error('Error updating TO-DO item:', error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
-  });
+
 
   router.get('/:id/delete', async (req, res) => {
     try {

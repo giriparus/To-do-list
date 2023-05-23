@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>TO-DO List</title>
-  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="../public/styles.css">
 </head>
 <body>
   <div class="container">
@@ -25,7 +25,6 @@
             <input type="checkbox" {{#if completed}}checked{{/if}}>
             <span>{{title}}</span>
             <p>{{description}}</p>
-            <a href="/todos/{{_id}}/edit">Edit</a>
             <a href="/todos/{{_id}}/delete">Delete</a>
           </li>
         {{/each}}
