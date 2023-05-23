@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TO-DO List</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>TO-DO List</h1>
+    {{#if successMessage}}
+      <p class="success-message">{{successMessage}}</p>
+    {{/if}}
+    {{#if errorMessage}}
+      <p class="error-message">{{errorMessage}}</p>
+    {{/if}}
+    <form method="POST" action="/todos/add">
+      <input type="text" name="title" placeholder="Title" required>
+      <input type="text" name="description" placeholder="Description">
+      <button type="submit">Add</button>
+    </form>
+    {{#if todos.length}}
+      <ul>
+        {{#each todos}}
+          <li>
+            <input type="checkbox" {{#if completed}}checked{{/if}}>
+            <span>{{title}}</span>
+            <p>{{description}}</p>
+            <a href="/todos/{{_id}}/edit">Edit</a>
+            <a href="/todos/{{_id}}/delete">Delete</a>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No TO-DO items found.</p>
+    {{/if}}
+    <p><a href="/auth/logout">Logout</a></p>
+  </div>
+</body>
+</html>
