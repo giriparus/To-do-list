@@ -39,7 +39,7 @@ app.use(session({
   }));
 
 app.use(flash());
-
+app.use(express.static('public'))
 app.use('/', authRoutes)
 app.use('/auth', authRoutes);
 app.use('/todos', todoRoutes);

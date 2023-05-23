@@ -1,5 +1,8 @@
 body {
     font-family: Arial, sans-serif;
+    background-image: './back.jpg';
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   
   .container {
@@ -60,51 +63,3 @@ body {
     text-decoration: none;
   }
 
-/* Add colors to headings and buttons */
-h1 {
-  color: #333;
-}
-
-button {
-  background-color: #4caf50;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Add background image to the body */
-body {
-  background-image: url('/back.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-/* Style the TO-DO list */
-.todo-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.todo-list li {
-  background-color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-.todo-list li:last-child {
-  margin-bottom: 0;
-}
-
-/* Add styles for success and error messages */
-.success-message {
-  color: #4caf50;
-  margin-bottom: 10px;
-}
-
-.error-message {
-  color: #f44336;
-  margin-bottom: 10px;
-}
