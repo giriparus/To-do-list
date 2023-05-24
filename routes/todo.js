@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
         user: userId
       });
       await newTodo.save();
-      Todo.find({ userId })
+      Todo.find({ user: userId })
       .then((todos) => {
       res.render('todos', { todos, successMessage: req.flash('successMessage') });
   })
