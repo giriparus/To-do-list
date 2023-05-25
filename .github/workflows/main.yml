@@ -17,8 +17,8 @@ jobs:
       - name: Trigger jenkins job
         uses: joshlk/jenkins-githubaction@master
         with:
-          url: http://34.131.59.32:8080/
-          job_name: FirstPipeline
+          url: http://34.131.139.17:8080/
+          job_name: To-do-list
           username: admin
           api_token: 11a64c7cdfb4505744de8b01f89ac87167
           timeout: "1000"
