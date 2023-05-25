@@ -17,7 +17,7 @@ jobs:
       - name: Trigger jenkins job
         uses: joshlk/jenkins-githubaction@master
         with:
-          url: http://34.131.139.17:8080/
+          url: http://34.131.139.17:8080/job/To-do-list/build?token=githubactions
           job_name: To-do-list
           username: admin
           api_token: 11a64c7cdfb4505744de8b01f89ac87167
