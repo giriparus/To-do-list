@@ -38,5 +38,5 @@ This is a web application that allows users to create and manage their TO-DO lis
 
 ## Contributing
 
-Contributions are welcome! If you find any issues or want to suggest improvements, please feel free to open an issue or submit a pull request.
+Contributions are welcome! If you find any issues or want to suggest improvements, please feel free to open any issues or submit a pull request.
 
