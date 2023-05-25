@@ -4,7 +4,7 @@ This is a web application that allows users to create and manage their TO-DO lis
 
 ## Features
 
-- User registration: Users can create an account by providing their name, email, and password. 
+- User registration: Users can create an account by providing their name, email, and password.  
 
 - User authentication: Users can log in to their account using their email and password.
 
