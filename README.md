@@ -2,7 +2,7 @@
 
 This is a web application that allows users to create and manage their TO-DO list. Users can register an account, log in, add and delete their TO-DO items.
 
-## Features
+## Features 
 
 - User registration: Users can create an account by providing their name, email, and password.  
 
