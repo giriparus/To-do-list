@@ -1,15 +1,25 @@
-on: push
-#trigger jenkins job
+name: jenkins-CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  launch_jenkins_job:
-    name: trigger jenkins job
+  # This workflow contains a single job called "build"
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Trigger Jenkins Job
-        uses: sbitio/trigger-jenkins-job@master
+      - name: Trigger jenkins job
+        uses: joshlk/jenkins-githubaction@master
         with:
-          JENKINS_USER: ${{ secrets.JENKINS_USER }}
-          JENKINS_TOKEN: ${{ secrets.JENKINS_TOKEN }}
-          JENKINS_HOST: ${{ secrets.JENKINS_HOST }}
-          JENKINS_JOB: ${{ secrets.JENKINS_JOB }}
+          url: http://34.131.139.17:8080/
+          job_name: To-do-list
+          username: ${{ secrets.JENKINS_USER }}
+          api_token: ${{ secrets.JENKINS_TOKEN }}
+          timeout: "1000"
