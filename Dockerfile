@@ -4,7 +4,10 @@ FROM node:18-alpine
 
 ENV NODE_ENV=production
 
-EXPOSE 8089
+# Install required packages for MongoDB
+RUN apk add --no-cache mongodb-tools
+
+EXPOSE 8089 
 
 WORKDIR /home/parus/Intern-project/To-do-list
 
