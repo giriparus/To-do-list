@@ -2,6 +2,7 @@ name: trigger jenkins job
 on:
   push: 
     branches: [ main ]
+    
 jobs:
 
   build:
