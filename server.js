@@ -17,7 +17,7 @@ app.listen(8080, ()=>{
 
 app.set('view engine', 'hbs')
 
-mongoose.connect('mongodb://mongo-sha256-2:27017/todolist')
+mongoose.connect('mongodb://localhost:27017/todolist')
   .then(() => {
     console.log('Connected to MongoDB');
   })
