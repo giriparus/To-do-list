@@ -34,7 +34,6 @@ This is a web application that allows users to create and manage their TO-DO lis
 - Mongoose: Elegant MongoDB object modeling for Node.js.
 - Express Session: Simple session middleware for Express.
 - Bcrypt: Library for hashing and comparing passwords.
-- Connect Flash: Flash message middleware for Express.
 
 ## Contributing
 
