@@ -69,7 +69,7 @@ pipeline {
             steps{
                 script{
                     sh 'gcloud container clusters get-credentials todolist-deployment --region asia-south2 --project fluted-depth-385708'
-                     sh 'helm upgrade todo /helm/todochart'
+                    sh 'helm upgrade todo /helm/todochart'
                 }
             }
         }
