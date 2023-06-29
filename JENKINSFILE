@@ -1,0 +1,84 @@
+pipeline {
+    agent any
+   
+
+    stages {
+        stage('Retrieve updated code') {
+            steps {
+                git branch: 'main', credentialsId: 'git-hub', poll: false, url: 'https://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@github.com/giriparus/To-do-list.git'            }
+        }
+    
+    
+        stage('Build dependencies') { 
+            steps {
+                sh 'npm install' 
+            }
+        }
+        stage('Versioning'){
+            steps {
+                script {
+                    sh '/home/parusgiri/tagfetch.sh'
+
+            }   
+        }
+        }
+        stage('Build docker image'){
+            steps{
+                script{
+                def tag
+                tag=sh(returnStdout: true, script: "git describe --abbrev=0 --tag").trim()
+                sh "docker build --tag asia.gcr.io/fluted-depth-385708/to-do-list:$tag ." 
+                    
+                }        
+                    
+                
+            }
+        }
+        
+        stage('push image to GCR'){
+            steps{
+                script {
+                    def tag
+                    tag=sh(returnStdout: true, script: "git describe --abbrev=0 --tag").trim()
+                    
+                    sh 'gcloud auth activate-service-account --key-file=/home/parusgiri/login.json'
+                    sh 'gcloud auth configure-docker'
+                    sh "docker push asia.gcr.io/fluted-depth-385708/to-do-list:$tag"
+
+
+                
+                }
+                    
+                }
+            }
+        stage('helm chart testing'){
+            steps{
+                script{
+                    def tag
+                    tag=sh(returnStdout: true, script: "git describe --abbrev=0 --tag").trim()
+                    
+                    sh "yq eval '.images.appImage.tag = \"$tag\" -i /helm/todochart/values.yaml" 
+                    
+                    sh 'helm lint /helm/todochart'
+                   
+                    
+                }
+            }
+        }
+        stage('deployment'){
+            steps{
+                script{
+                     sh 'helm install /helm/todochart'
+                }
+            }
+        }
+        }
+    
+}
+       
+  
+    
+    
+
+
+
