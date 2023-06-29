@@ -68,7 +68,7 @@ pipeline {
         stage('deployment'){
             steps{
                 script{
-                     sh 'helm install /helm/todochart'
+                     sh 'helm upgrade todo /helm/todochart'
                 }
             }
         }
